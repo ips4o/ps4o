@@ -1,0 +1,3 @@
+[submodule "extern/cmake-modules"]
+	path = extern/cmake-modules
+	url = git@github.com:ips4o/legacy-modules.git
