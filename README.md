@@ -55,6 +55,28 @@ An initial version of IPS⁴o has been described in our [publication](https://dr
 
 ## Usage
 
+Clone this repository and check out its submodule
+
+```bash
+git clone --recurse-submodules https://github.com/ips4o/ps4o.git
+```
+
+or use the following commands instead if you want to include this repository as a submodule:
+
+```bash
+git submodule add https://github.com/ips4o/ps4o.git
+git submodule update --recursive --init
+```
+
+PS⁴o provides a CMake library for simple usage:
+
+```CMake
+add_subdirectory(<path-to-the-ps4o-repository>)
+target_link_libraries(<your-target> PRIVATE ps4o)
+```
+
+A minimal working example:
+
 ```C++
 #include "ps4o.hpp"
 
@@ -63,13 +85,6 @@ ps4o::sort(begin, end[, comparator]);
 
 // sort in parallel (uses OpenMP if available, std::thread otherwise)
 ps4o::parallel::sort(begin, end[, comparator]);
-```
-
-PS⁴o provides a CMake library for simple usage:
-
-```CMake
-add_subdirectory(<path-to-this-folder>)
-target_link_libraries(<your-target> PRIVATE ps4o)
 ```
 
 If you use the CMake example shown above, we automatically optimize PS⁴o for the native CPU (e.g., `-march=native`).
