@@ -52,7 +52,11 @@ int main(int argc, char **argv) {
     e = dist(gen);
   }
 
+#if defined(_REENTRANT)
   ps4o::parallel::sort(v.begin(), v.end(), std::less<>{});
+#else
+  ps4o::sort(v.begin(), v.end(), std::less<>{});
+#endif
 
   const bool sorted = std::is_sorted(v.begin(), v.end(), std::less<>{});
   std::cout << "Elements are sorted: " << std::boolalpha << sorted << std::endl;
