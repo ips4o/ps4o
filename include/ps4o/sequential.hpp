@@ -46,8 +46,10 @@
 namespace ps4o {
 namespace detail {
 
+#if defined(_REENTRANT)
+  
 /**
- * Sequentially partition input.
+ * partition input sequentially.
  */
 template<class Cfg>
 template <class InputIterator, class OutputIterator>
@@ -91,6 +93,8 @@ void Sorter<Cfg>::sequential(const InputIterator begin, const OutputIterator beg
   }
 
 }
+
+#endif
 
 /**
  * Recursive entry point for sequential algorithm.
