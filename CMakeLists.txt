@@ -23,7 +23,7 @@ if (PS4O_OPTIMIZE_FOR_NATIVE)
   endif()
 endif()
 
-option(PS4O_DISABLE_PARALLEL "Enable parallel code of Ps4o" OFF)
+option(PS4O_DISABLE_PARALLEL "Disable parallel code of Ps4o" OFF)
 if (NOT PS4O_DISABLE_PARALLEL)
 
   set(CMAKE_THREAD_PREFER_PTHREAD TRUE)
@@ -36,7 +36,7 @@ if (NOT PS4O_DISABLE_PARALLEL)
   target_link_libraries(ps4o INTERFACE TBB::tbb)
 
 endif()
-message(STATUS "Parallel support of Ps4o disabled: ${PS4O_DISABLE_PARALLEL}")
+message(STATUS "Parallel support of PS4o disabled: ${PS4O_DISABLE_PARALLEL}")
 
 option(PS4O_USE_OPENMP "Enable OpenMP threads" OFF)
 if (PS4O_USE_OPENMP)
